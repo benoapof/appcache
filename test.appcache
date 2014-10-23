@@ -1,0 +1,11 @@
+CACHE MANIFEST
+#v1
+index.html
+image.png
+imagePasConnecT.png
+
+NETWORK:
+imageTestConnecT.png
+
+FALLBACK:
+imageTestConnecT.png imagePasConnecT.png
