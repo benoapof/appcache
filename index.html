@@ -19,7 +19,7 @@ Remove this if you use the .htaccess -->
 
 <div>
 	<header>
-		<h1>Test application cache - v.09</h1>
+		<h1>Test application cache - v.10</h1>
 	</header>
 
 	<div>
@@ -52,14 +52,33 @@ Remove this if you use the .htaccess -->
 </div>
 
 <script>
-function onUpdateReady() {
-  alert('found new version!');
-  location.reload();
+/*function onUpdateReady() {
+	alert('found new version!');
+	location.reload();
 }
+
 window.applicationCache.addEventListener('updateready', onUpdateReady);
-if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
-  onUpdateReady();
-}
+
+if(window.applicationCache.status === window.applicationCache.UPDATEREADY)
+	onUpdateReady();
+*/
+
+// Check if a new cache is available on page load.
+window.addEventListener('load', function(e) {
+
+	window.applicationCache.addEventListener('updateready', function(e) {
+		if (window.applicationCache.status == window.applicationCache.UPDATEREADY) {
+			// Browser downloaded a new app cache.
+			if (confirm('Une nouvelle version de ce site est disponible.\n Mettre à jour ?')) {
+				window.location.reload();
+			}
+		} else {
+			// Manifest didn't changed. Nothing new to server.
+		}
+	}, false);
+
+}, false);
+
 </script>
 
 </body>
