@@ -19,7 +19,7 @@ Remove this if you use the .htaccess -->
 
 <div>
 	<header>
-		<h1>Test application cache - v.05</h1>
+		<h1>Test application cache - v.06</h1>
 	</header>
 
 	<div>
@@ -52,6 +52,9 @@ Remove this if you use the .htaccess -->
 </div>
 
 <script>
+alert(navigator.onLine);
+if(!navigator.onLine) location.reload();
+
 function onUpdateReady() {
   alert('found new version!');
 }
