@@ -19,7 +19,7 @@ Remove this if you use the .htaccess -->
 
 <div>
 	<header>
-		<h1>Test application cache - v.03</h1>
+		<h1>Test application cache - v.04</h1>
 	</header>
 
 	<div>
@@ -50,6 +50,16 @@ Remove this if you use the .htaccess -->
 	</footer>
 
 </div>
+
+<script>
+function onUpdateReady() {
+  alert('found new version!');
+}
+window.applicationCache.addEventListener('updateready', onUpdateReady);
+if(window.applicationCache.status === window.applicationCache.UPDATEREADY) {
+  onUpdateReady();
+}
+</script>
 
 </body>
 

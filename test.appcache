@@ -1,13 +1,11 @@
 CACHE MANIFEST
-#v.03
+#v.04
 index.html
 image.png
+imagePasConnecT.png
 
 NETWORK:
 imageTestConnecT.png
 
 FALLBACK:
 imageTestConnecT.png imagePasConnecT.png
-
-CACHE:
-imagePasConnecT.png
