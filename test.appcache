@@ -1,11 +1,8 @@
 CACHE MANIFEST
-#v.07
-/appcache/index.html
-/appcache/image.png
-/appcache/imagePasConnecT.png
+#v.08
+index.html
+image.png
+imagePasConnecT.png
 
 NETWORK:
-/appcache/imageTestConnecT.png
-
-FALLBACK:
-/appcache/imageTestConnecT.png /appcache/imagePasConnecT.png
+imageTestConnecT.png

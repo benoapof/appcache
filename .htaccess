@@ -1,0 +1,3 @@
+<FilesMatch "\imageTestConnecT.png$"> 
+Header set Cache-Control "max-age=0, public" 
+</FilesMatch>
