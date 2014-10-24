@@ -32,7 +32,7 @@ Remove this if you use the .htaccess -->
 
 <div>
 	<header>
-		<h1>Test application cache - v.12</h1>
+		<h1>Test application cache - v.13</h1>
 	</header>
 
 	<div>
@@ -42,11 +42,12 @@ Remove this if you use the .htaccess -->
 		</p>
 		<p>
 			Image pour le test connecté ou pas
-			<img src="imageTestConnecT.png" onerror="alert('Pas connecté !')">
+			<img src="imageTestConnecT.png" id="imageConnecT" onerror="imageConnecT()">
 		</p>
 	</div>
 
 	<div id="status"><p id="state">NC</p></div>
+	<div id="log"></div>
 
 	<div id="shoppingList" class="shoppingList">
 		<h2>Shopping list</h2>
@@ -68,6 +69,13 @@ Remove this if you use the .htaccess -->
 
 <script>
 
+// check online/offline by image load
+function imageConnecT() {
+	alert('Pas connecté !');
+	document.getElementById("imageConnecT").src="imagePasConnecT.png";
+}
+
+// check navigator online/offline
 function updateOnlineStatus(msg) {
 	var status = document.getElementById("status");
 	var condition = navigator.onLine ? "online" : "offline";
@@ -76,7 +84,6 @@ function updateOnlineStatus(msg) {
 	var log = document.getElementById("log");
 	log.appendChild(document.createTextNode("Evènement : " + msg + " ; état = " + condition + "\n"));
 }
-
 function loaded() {
 	updateOnlineStatus("load");
 	document.body.addEventListener("offline", function (){
@@ -103,6 +110,7 @@ window.addEventListener('load', function(e) {
 
 }, false);
 
+// lance le check online/offline
 loaded();
 
 </script>
