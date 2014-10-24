@@ -32,7 +32,7 @@ Remove this if you use the .htaccess -->
 
 <div>
 	<header>
-		<h1>Test application cache - v.14</h1>
+		<h1>Test application cache - v.15</h1>
 	</header>
 
 	<div>
@@ -45,6 +45,15 @@ Remove this if you use the .htaccess -->
 			<img src="imageTestConnecT.png" id="imageConnecT" onerror="imageConnecT()">
 		</p>
 	</div>
+
+	<form id="ident" action="ident.php" method="post">
+		<ul>
+			<li><label for="chpNom">Nom</label><input id="chpNom" name="chpNom" type="text" required value="">
+			<li><label for="chpPrenom">Prenom</label><input id="chpPrenom" name="chpPrenom" type="text" required value="">
+			<li><label for="chpEmail">Em@il</label><input id="chpEmail" name="chpEmail" type="email" required value="">
+		</ul>
+		<button>Envoyer</button>
+	</form>
 
 	<div id="status"><p id="state">NC</p></div>
 	<div id="log"></div>

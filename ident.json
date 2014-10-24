@@ -1,5 +1,14 @@
 {
-	"nom": "nomTest1", 
-	"prenom":"prenomTest1",
-	"email":"emailTest1"
+	"liste" : [
+		{
+			"nom": "nomTest1", 
+			"prenom":"prenomTest1",
+			"email":"emailTest1"
+		},
+		{
+			"nom": "nomTest2", 
+			"prenom":"prenomTest2",
+			"email":"emailTest2"
+		}
+	]
 }
