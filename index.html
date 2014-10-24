@@ -15,11 +15,24 @@ Remove this if you use the .htaccess -->
 
 </head>
 
+<style>
+.online,
+.offline {
+	background-color: #0f0;
+	color: #fff;
+	font-weight: bold;
+	text-transform: capitalize;
+}
+.offline {
+	background-color: #f00;
+}
+</style>
+
 <body>
 
 <div>
 	<header>
-		<h1>Test application cache - v.11</h1>
+		<h1>Test application cache - v.12</h1>
 	</header>
 
 	<div>
@@ -32,6 +45,8 @@ Remove this if you use the .htaccess -->
 			<img src="imageTestConnecT.png" onerror="alert('Pas connecté !')">
 		</p>
 	</div>
+
+	<div id="status"><p id="state">NC</p></div>
 
 	<div id="shoppingList" class="shoppingList">
 		<h2>Shopping list</h2>
@@ -52,16 +67,25 @@ Remove this if you use the .htaccess -->
 </div>
 
 <script>
-/*function onUpdateReady() {
-	alert('found new version!');
-	location.reload();
+
+function updateOnlineStatus(msg) {
+	var status = document.getElementById("status");
+	var condition = navigator.onLine ? "online" : "offline";
+	status.setAttribute("class", condition);
+	document.getElementById("state").innerHTML = condition;
+	var log = document.getElementById("log");
+	log.appendChild(document.createTextNode("Evènement : " + msg + " ; état = " + condition + "\n"));
 }
 
-window.applicationCache.addEventListener('updateready', onUpdateReady);
-
-if(window.applicationCache.status === window.applicationCache.UPDATEREADY)
-	onUpdateReady();
-*/
+function loaded() {
+	updateOnlineStatus("load");
+	document.body.addEventListener("offline", function (){
+		updateOnlineStatus("offline")
+	}, false);
+	document.body.addEventListener("online", function (){
+		updateOnlineStatus("online")
+	}, false);
+}
 
 // Check if a new cache is available on page load.
 window.addEventListener('load', function(e) {
@@ -78,6 +102,8 @@ window.addEventListener('load', function(e) {
 	}, false);
 
 }, false);
+
+loaded();
 
 </script>
 
